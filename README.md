@@ -85,7 +85,7 @@ Uma sugestão aqui seria separar os serviços dos componentes.
 
 Usar ferramentas de análise de código, [ESLint](https://eslint.org/), por exemplo.
 
-**2) internacionalização:**
+**2) Internacionalização:**
 
 Adaptar para tradução, por exemplo, utilizando [Vue I18n](https://vue-i18n.intlify.dev/).
 
