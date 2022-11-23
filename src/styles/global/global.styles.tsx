@@ -5,23 +5,22 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: ${({ theme }) => theme.colors.text.primary};
   }
 
   body {
     color: ${({ theme }) => theme.colors.text.primary};
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.background.main};
+    font-family: 'Poppins', sans-serif;
+
   }
 
   html {
     overflow: auto;
   }
 
-  body,
-  input,
-  textarea,
-  select,
-  button {
-    font: 400 1rem 'Poppins', Arial, Helvetica, sans-serif;
+  ul {
+    list-style: none;
   }
 
   button {
