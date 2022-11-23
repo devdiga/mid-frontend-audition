@@ -1,22 +1,30 @@
 {
-  "name": "mid-frontend-audition",
-  "version": "0.0.0",
+  "name": "star-wars",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@mdi/font": "7.0.96",
-    "axios": "^1.1.3",
-    "roboto-fontface": "*",
-    "vue": "^3.2.38",
-    "vuetify": "^3.0.0",
-    "webfontloader": "^1.0.0"
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "axios": "^1.2.0",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.4",
+    "next": "13.0.4",
+    "next-i18next": "^13.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-toastify": "^9.1.1",
+    "styled-components": "^5.3.6",
+    "typescript": "4.9.3",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.3",
-    "vite": "^3.1.9",
-    "vite-plugin-vuetify": "^1.0.0-alpha.12"
+    "@types/styled-components": "^5.1.26"
   }
 }
