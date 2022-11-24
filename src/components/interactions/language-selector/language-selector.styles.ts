@@ -34,6 +34,7 @@ export const LanguageIcon = styled.img<LanguageIconProps>`
 
 export const LanguageSelectorList = styled.ul`
   position: absolute;
+  z-index: 10;
   top: 40px;
   left: 0px;
   background-color: ${({ theme }) => theme.colors.primary.main};

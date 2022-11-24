@@ -1,3 +1,14 @@
 {
-  "name": "Guerras nas estrelas"
+  "name": "Guerras nas estrelas",
+  "footer": {
+    "follow": "Siga Me",
+    "developer": "Desenvolvido por",
+    "data": "Dados disponibilizados por SWAPI ©2022"
+  },
+  "nav": {
+    "home": "Início",
+    "films": "Filmes",
+    "people": "Personagens",
+    "dashboard": "Estatísticas"
+  }
 }

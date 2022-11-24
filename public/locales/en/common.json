@@ -1,3 +1,14 @@
 {
-  "name": "star wars"
+  "name": "star wars",
+  "footer": {
+    "follow": "Follow Me",
+    "developer": "Developed by",
+    "data": "Data provided by SWAPI ©2022"
+  },
+  "nav": {
+    "home": "Home",
+    "films": "Movies",
+    "people": "Characters",
+    "dashboard": "Dashboard"
+  }
 }

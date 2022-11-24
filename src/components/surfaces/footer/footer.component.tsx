@@ -1,7 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 
+import { Link } from 'components/interactions/link/link.component';
 import {
   FooterContainer,
   FooterContent,
@@ -9,12 +9,12 @@ import {
 } from './footer.styles';
 
 export const Footer = () => {
-  const { t } = useTranslation('footer');
+  const { t } = useTranslation('common');
   return (
     <FooterContainer>
       <FooterContent>
         <div>
-          <p style={{ textAlign: 'center' }}>{t('follow')}</p>
+          <p>{t('footer.follow')}</p>
           <SocialContainer>
             <Link href="https://www.linkedin.com/in/willianrsilva/">
               <i className="fa fa-linkedin-square fa-3x" />
@@ -27,19 +27,21 @@ export const Footer = () => {
             </Link>
           </SocialContainer>
         </div>
-        <p>
-          {t('developer')}
-          <a
-            href="https://willianrodrigues.tk/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <strong> Will</strong>
+        <div>
+          <p>
+            {t('footer.developer')}
+            <a
+              href="https://willianrodrigues.tk/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong> Will</strong>
+            </a>
+          </p>
+          <a href="https://swapi.dev/" rel="noreferrer" target="_blank">
+            {t('footer.data')}
           </a>
-        </p>
-        <a href="https://swapi.dev/" rel="noreferrer" target="_blank">
-          {t('data')}
-        </a>
+        </div>
       </FooterContent>
     </FooterContainer>
   );

@@ -14,15 +14,19 @@ export const FooterContent = styled.div`
   gap: ${({ theme }) => theme.space[6]};
   max-width: 600px;
   margin: auto;
-  padding: ${({ theme }) => theme.space[6]};
+  padding: ${({ theme }) => theme.space[4]};
   background-image: url('/img/darth-vader.svg');
   background-repeat: no-repeat;
   background-size: 360px;
   background-position: center;
   opacity: 0.75;
-
+  text-align: center;
   * {
     color: #ddd;
+  }
+
+  div:last-child {
+    font-size: 12px;
   }
 `;
 
