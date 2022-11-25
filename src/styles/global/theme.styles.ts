@@ -18,11 +18,16 @@ export const darkTheme = {
     },
     background: {
       main: '#010409',
-      contrast: '#c9d1d9'
+      contrast: '#c9d1d9',
+      image: '/img/background-dark.jpeg'
     },
-    navBar: '#161b22',
+    navBar: '#010409',
     navBarInput: '#21262D',
     border: '#30363d',
+    button: {
+      main: '#0969da',
+      hover: '#0949da'
+    },
     text: {
       primary: '#c9d1d9',
       secondary: '#8b949e',
@@ -50,11 +55,16 @@ export const lightTheme = {
     },
     background: {
       main: '#fff',
-      contrast: '#24292f'
+      contrast: '#24292f',
+      image: '/img/background-light.jpg'
     },
-    navBar: '#24292f',
+    navBar: '#010409',
     navBarInput: 'transparent',
     border: 'rgba(27, 31, 36, 0.15)',
+    button: {
+      main: '#0969da',
+      hover: '#0949da'
+    },
     text: {
       primary: '#24292f',
       secondary: '#57606a',

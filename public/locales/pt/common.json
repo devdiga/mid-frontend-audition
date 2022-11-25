@@ -10,5 +10,8 @@
     "films": "Filmes",
     "people": "Personagens",
     "dashboard": "Estatísticas"
+  },
+  "pageTitle": {
+    "homeTitle": "Inicio"
   }
 }

@@ -4,6 +4,7 @@ export const FooterContainer = styled.footer`
   margin-top: auto;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.navBar};
+  z-index: 1;
 `;
 
 export const FooterContent = styled.div`
@@ -18,9 +19,10 @@ export const FooterContent = styled.div`
   background-image: url('/img/darth-vader.svg');
   background-repeat: no-repeat;
   background-size: 360px;
-  background-position: center;
+  background-position: 50% 55%;
   opacity: 0.75;
   text-align: center;
+
   * {
     color: #ddd;
   }

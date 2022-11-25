@@ -10,9 +10,13 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     color: ${({ theme }) => theme.colors.text.primary};
-    background: ${({ theme }) => theme.colors.background.main};
+    background-color: ${({ theme }) => theme.colors.background.main};
     font-family: 'Poppins', sans-serif;
-
+    background-image: ${({ theme }) =>
+      `url(${theme.colors.background.image})`} ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   html {

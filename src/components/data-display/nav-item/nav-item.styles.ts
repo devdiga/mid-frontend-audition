@@ -29,7 +29,7 @@ export const NavItemContainer = styled(Link)<NavItemContainerProps>`
   &:before {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;

@@ -10,5 +10,8 @@
     "films": "Movies",
     "people": "Characters",
     "dashboard": "Dashboard"
+  },
+  "pageTitle": {
+    "homeTitle": "Home"
   }
 }
