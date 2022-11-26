@@ -12,6 +12,7 @@
     "dashboard": "Estatísticas"
   },
   "pageTitle": {
-    "homeTitle": "Inicio"
+    "homeTitle": "Inicio",
+    "charactersTitle": "Personagens"
   }
 }

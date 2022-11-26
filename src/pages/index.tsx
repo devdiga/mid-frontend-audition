@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Logo from '@images/logo.svg';
 import { useState } from 'react';
 import { Button } from 'components/interactions/button/button.component';
+import { GetStaticProps } from 'next';
 
 const Home = () => {
   const { t } = useTranslation('home');
@@ -61,11 +62,11 @@ const Home = () => {
 
 export default Home;
 
-export async function getStaticProps({ locale }: any) {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['home', 'common'])),
+      ...(await serverSideTranslations(locale ?? 'en', ['home', 'common'])),
       pageTitle: 'homeTitle'
     }
   };
-}
+};

@@ -3,16 +3,22 @@ import { ButtonStyled } from './button.styles';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'contained' | 'outlined';
+  loading?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'contained',
+  loading,
   ...rest
 }) => {
   return (
     <ButtonStyled variant={variant} {...rest}>
-      {children}
+      {loading ? (
+        <i className="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+      ) : (
+        children
+      )}
     </ButtonStyled>
   );
 };

@@ -1,5 +1,5 @@
 import { NavContent, NavContainer } from './nav.styles';
-import { NavItem } from 'components/data-display/nav-item/nav-item.component';
+import { NavItem } from 'components/interactions/nav-item/nav-item.component';
 
 import Chewbacca from '@images/chewbacca.svg';
 import Spacecraft from '@images/spacecraft.png';
@@ -14,12 +14,12 @@ const routes = [
   },
   {
     title: 'films',
-    href: '/films',
+    href: '/movies',
     icon: Spacecraft
   },
   {
     title: 'people',
-    href: '/people',
+    href: '/characters',
     icon: Chewbacca
   },
   {

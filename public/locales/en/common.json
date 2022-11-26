@@ -12,6 +12,7 @@
     "dashboard": "Dashboard"
   },
   "pageTitle": {
-    "homeTitle": "Home"
+    "homeTitle": "Home",
+    "charactersTitle": "Characters"
   }
 }

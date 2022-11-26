@@ -9,7 +9,7 @@ import {
   HeaderButtonsContainer
 } from './header.styles';
 import StarWars from '@images/star-wars.svg';
-import { Nav } from 'components/interactions/nav/nav.component';
+import { Nav } from 'components/surfaces/nav/nav.component';
 
 export const Header = () => {
   const darkmode = useDarkMode(true);
