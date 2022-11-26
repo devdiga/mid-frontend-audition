@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CharacterCardContainer = styled.div`
+export const MovieCardContainer = styled.div`
   min-width: 212px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.primary.main};
@@ -11,7 +11,7 @@ export const CharacterCardContainer = styled.div`
   padding: 16px;
 `;
 
-export const CharacterCardInfo = styled.div`
+export const MovieCardInfo = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 12px;

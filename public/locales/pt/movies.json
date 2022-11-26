@@ -1,0 +1,14 @@
+{
+  "title": "Lista de Filmes",
+  "search": "Buscar Filme",
+  "noData": "Nenhum filme encontrado!",
+  "nextPageButton": "Carregar mais",
+  "finalList": "Isso é tudo!",
+  "movieCard": {
+    "title": "Titulo",
+    "episode": "Episódio",
+    "date": "Data de Lançamento",
+    "director": "Diretor",
+    "producer": "Produção"
+  }
+}
