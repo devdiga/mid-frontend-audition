@@ -16,7 +16,7 @@ interface CharacterCardProps {
   character: Character;
 }
 
-export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   const { t } = useTranslation('characters');
 
   const isColorValid = (color = '') => {
@@ -54,10 +54,8 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
         </CharacterCardInfo>
       </CharacterCardGroupContainer>
 
-      <div>
-        <strong>
-          <small>Características</small>
-        </strong>
+      <div style={{ width: '100%' }}>
+        <strong>Características</strong>
 
         <CharacterCardHeightGroup>
           <div>
@@ -110,3 +108,5 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
     </CharacterCardContainer>
   );
 };
+
+export default CharacterCard;
