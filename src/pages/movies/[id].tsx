@@ -6,9 +6,11 @@ import { MoviesContainer, MoviesContent } from '@styles/movies.styles';
 import { Loading } from 'components/data-display/loading/loading.component';
 import { MovieCard } from 'components/data-display/movie-card/movie-card.component';
 import { MovieDetailCard } from 'components/data-display/movie-detail-card/movie-detail-card.component';
+import { Presentation } from 'components/data-display/presentation/presentation.component';
 import { Button } from 'components/interactions/button/button.component';
 import { IconButton } from 'components/interactions/icon-button/icon-button.component';
 import { Input } from 'components/interactions/Input/input.component';
+import { ROMAN } from 'data/constants/roman.constant';
 import { Movie } from 'data/models/movie.model';
 import { SwApiResponse } from 'data/models/swapi-response.model';
 import { CharacterService } from 'data/services/character.service';
@@ -25,18 +27,9 @@ interface MoviesProps {
 
 const Movies: React.FC<MoviesProps> = ({ initialData }) => {
   const [data, setData] = useState<null | Movie>(null);
-  const [play, setPlay] = useState(false);
+  const [started, setStarted] = useState(false);
 
-  const { t } = useTranslation('movies');
-
-  const handlePay = () => {
-    setPlay(true);
-    let audio = document.querySelector('audio');
-    if (audio) {
-      audio.play();
-      audio.currentTime = 0;
-    }
-  };
+  const { t } = useTranslation('movieDetail');
 
   useEffect(() => {
     if (initialData) {
@@ -47,13 +40,11 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
       ).then(characters => setData({ ...initialData, characters }));
     }
   }, [initialData]);
-
+  console.log(data?.opening_crawl);
   return (
-    <MovieDetailContainer>
-      {play ? (
-        <div />
-      ) : (
-        <>
+    <>
+      {!started && (
+        <MovieDetailContainer>
           {data ? (
             <>
               <MovieDetailHeader>
@@ -61,15 +52,24 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
                 <h1>{t('title')}</h1>
               </MovieDetailHeader>
               <MovieDetailCard movie={data} />
-              <Button onClick={handlePay}>{t('playButton')}</Button>
             </>
           ) : (
             <Loading title="Carregando Dados..." />
           )}
-        </>
+        </MovieDetailContainer>
       )}
-      <audio src="/audio/star-wars.mp3" autoPlay={play} />
-    </MovieDetailContainer>
+      {!!data && (
+        <div style={{ marginBottom: '32px' }}>
+          <Presentation
+            onStart={() => setStarted(true)}
+            onStop={() => setStarted(false)}
+            title={data.title.toUpperCase()}
+            episode={`EPISODE ${ROMAN[data.episode_id - 1]}`}
+            opening={data.opening_crawl.split('\r\n\r')}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
