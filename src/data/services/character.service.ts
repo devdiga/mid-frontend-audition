@@ -11,7 +11,10 @@ export const CharacterService = {
     return data;
   },
 
-  async getCharacter(characterUrl: string) {
-    const { data } = await axios.get<Character>(characterUrl);
+  async getCharacter(characterId: string) {
+    const { data } = await axios.get<Character>(
+      `https://swapi.dev/api/people/${characterId}`
+    );
+    return data;
   }
 };

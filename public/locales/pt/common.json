@@ -1,5 +1,5 @@
 {
-  "name": "Guerras nas estrelas",
+  "locale": "pt-BR",
   "footer": {
     "follow": "Siga Me",
     "developer": "Desenvolvido por",
@@ -13,6 +13,7 @@
   },
   "pageTitle": {
     "homeTitle": "Inicio",
-    "charactersTitle": "Personagens"
+    "charactersTitle": "Personagens",
+    "moviesTitle": "Filmes"
   }
 }

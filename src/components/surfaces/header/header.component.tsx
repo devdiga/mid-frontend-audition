@@ -18,7 +18,7 @@ export const Header = () => {
     <>
       <HeaderContainer>
         <HeaderContent>
-          <Image src={StarWars} alt="Star Wars" width={100} />
+          <Image src={StarWars} alt="Star Wars" width={100} height={80} />
           <HeaderButtonsContainer>
             <DarkModeToggle
               onChange={darkmode.toggle}

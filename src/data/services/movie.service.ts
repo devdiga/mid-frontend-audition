@@ -11,7 +11,10 @@ export const MovieService = {
     return data;
   },
 
-  async getMovie(movieUrl: string) {
-    const { data } = await axios.get<Movie>(movieUrl);
+  async getMovie(movieId: string) {
+    const { data } = await axios.get<Movie>(
+      `https://swapi.dev/api/films/${movieId}`
+    );
+    return data;
   }
 };

@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
-interface ButtonStyledProps {
+interface IconButtonStyled {
   variant: string;
 }
-export const ButtonStyled = styled.button<ButtonStyledProps>`
-  border-radius: 5px;
-  font-weight: 700;
+export const IconButtonStyled = styled.button<IconButtonStyled>`
+  border-radius: 20px;
   height: 40px;
-  position: relative;
+  width: 40px;
   transition: background-color 0.4s;
-  width: 100%;
 
   background: ${({ variant, theme }) =>
     variant === 'contained' ? theme.colors.button.main : 'transparent'};

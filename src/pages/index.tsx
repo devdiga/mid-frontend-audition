@@ -51,10 +51,7 @@ const Home = () => {
         </div>
       </HomeContent>
 
-      <audio
-        src="https://raw.githubusercontent.com/glaucia86/sounds/master/starwars.mp3"
-        autoPlay={play}
-      />
+      <audio src="/audio/star-wars.mp3" autoPlay={play} />
       {!play && <Button onClick={handlePay}>{t('playButton')}</Button>}
     </HomeContainer>
   );

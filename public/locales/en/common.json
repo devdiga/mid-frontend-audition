@@ -1,5 +1,5 @@
 {
-  "name": "star wars",
+  "locale": "en-US",
   "footer": {
     "follow": "Follow Me",
     "developer": "Developed by",
@@ -13,6 +13,8 @@
   },
   "pageTitle": {
     "homeTitle": "Home",
-    "charactersTitle": "Characters"
+    "charactersTitle": "Characters",
+    "moviesTitle": "Movies",
+    "movieDetailTitle": "Movies"
   }
 }
