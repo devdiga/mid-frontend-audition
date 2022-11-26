@@ -2,7 +2,7 @@ import {
   CharactersContainer,
   CharactersContent
 } from '@styles/characters.styles';
-import { CharacterCard } from 'components/data-display/character-card/character-card.component';
+import { CharacterCardDynamic } from 'components/data-display/character-card/character-card.dynamic';
 import { Button } from 'components/interactions/button/button.component';
 import { Input } from 'components/interactions/Input/input.component';
 import { Character } from 'data/models/characters.model';
@@ -70,7 +70,7 @@ const Characters: React.FC<CharactersProps> = ({ initialData }) => {
       </HeaderPageContainer>
       <CharactersContent>
         {data?.results?.map(character => (
-          <CharacterCard key={character.name} character={character} />
+          <CharacterCardDynamic key={character.name} character={character} />
         ))}
       </CharactersContent>
       {!data?.results?.length && <p>{t('noData')}</p>}

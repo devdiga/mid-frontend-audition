@@ -29,6 +29,8 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
   }
   
   a {

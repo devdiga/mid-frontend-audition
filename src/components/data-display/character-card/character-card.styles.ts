@@ -1,20 +1,25 @@
 import styled from 'styled-components';
 
-export const CharacterCardContainer = styled.div`
+export const CharacterCardContainer = styled.button`
   min-width: 212px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.primary.main};
-
+  align-items: flex-start;
+  text-align: left;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 16px;
+  border: 1px solid ${({ theme }) => theme.colors.secondary.main};
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.button.main};
+  }
 `;
 
 export const CharacterCardInfo = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 12px;
 
   span {
     font-size: 14px;
@@ -23,6 +28,7 @@ export const CharacterCardInfo = styled.div`
 
 export const CharacterCardGroupContainer = styled.div`
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 8px;
@@ -33,6 +39,7 @@ export const CharacterCardHeightGroup = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  font-size: 14px;
 
   div {
     background-color: ${({ theme }) => theme.colors.button.main};
@@ -82,7 +89,7 @@ export const CharacterCardColor = styled.div<CharacteristicsProps>`
 `;
 
 export const CharacterCardGenderText = styled.span`
-  max-width: 100px;
+  max-width: 80px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
