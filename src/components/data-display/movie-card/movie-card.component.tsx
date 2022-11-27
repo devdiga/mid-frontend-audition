@@ -1,7 +1,9 @@
-import { Movie } from 'data/models/movie.model';
-import { useDateFormat } from 'hooks/date-format.hook';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+
+import { Movie } from 'data/models/movie.model';
+import { useDateFormat } from 'hooks/date-format.hook';
+
 import { MovieCardContainer, MovieCardInfo } from './movie-card.styles';
 
 interface MovieCardProps {

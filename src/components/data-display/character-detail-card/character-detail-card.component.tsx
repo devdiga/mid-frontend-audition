@@ -1,7 +1,12 @@
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { Button } from 'components/interactions/button/button.component';
 import { Character } from 'data/models/characters.model';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
+import { Movie } from 'data/models/movie.model';
+import { MovieService } from 'data/services/movie.service';
+
 import { CharacterCardInfo } from '../character-card/character-card.styles';
 import {
   CharacterDetailCardContainer,
@@ -11,15 +16,36 @@ import {
 
 interface CharacterDetailCardProps {
   character: Character;
+  filmsUrl: Movie[];
 }
 export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
-  character
+  character,
+  filmsUrl
 }) => {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [loading, setLoading] = useState(false);
+
   const { t } = useTranslation('characterDetail');
   const { push } = useRouter();
 
   const handleSelectMovie = (movieUrl: string) => {
     push(`/movies/${movieUrl.replace(/\D/g, '')}`);
+  };
+
+  const getMovieAppearances = async () => {
+    try {
+      setLoading(true);
+      const movieAppearances = await Promise.all(
+        filmsUrl.map(filmUrl =>
+          MovieService.getMovie(`${filmUrl}`.replace(/\D/g, ''))
+        )
+      );
+      setMovies(movieAppearances);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -91,7 +117,7 @@ export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
         <legend>{t('characterDetailCard.movies')}</legend>
       </strong>
       <CharacterDetailMoviesContainer>
-        {character.films.map(movie => (
+        {movies.map(movie => (
           <Button
             key={movie?.title}
             variant="text"
@@ -100,6 +126,15 @@ export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
             {movie?.title}
           </Button>
         ))}
+        {!movies.length && (
+          <Button
+            variant="text"
+            onClick={getMovieAppearances}
+            loading={loading}
+          >
+            {t('characterDetailCard.movieAppearances')}
+          </Button>
+        )}
       </CharacterDetailMoviesContainer>
     </CharacterDetailCardContainer>
   );

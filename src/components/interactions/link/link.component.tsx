@@ -1,5 +1,5 @@
-import LinkBase from 'next/link';
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
+import LinkBase from 'next/link';
 
 interface LinkProps
   extends DetailedHTMLProps<

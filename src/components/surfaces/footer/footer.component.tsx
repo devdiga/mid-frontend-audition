@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Link } from 'components/interactions/link/link.component';
+
 import {
   FooterContainer,
   FooterContent,

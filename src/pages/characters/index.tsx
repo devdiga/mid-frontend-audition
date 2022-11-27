@@ -1,3 +1,8 @@
+import { useState } from 'react';
+import { GetServerSideProps } from 'next';
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import {
   CharactersContainer,
   CharactersContent
@@ -8,10 +13,6 @@ import { Input } from 'components/interactions/Input/input.component';
 import { Character } from 'data/models/characters.model';
 import { SwApiResponse } from 'data/models/swapi-response.model';
 import { CharacterService } from 'data/services/character.service';
-import { GetServerSideProps } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { HeaderPageContainer } from 'styles/header-page.styles';
 
 interface CharactersProps {

@@ -1,3 +1,9 @@
+import { useState } from 'react';
+import { GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import {
   MovieDetailContainer,
   MovieDetailHeader
@@ -8,11 +14,6 @@ import { IconButton } from 'components/interactions/icon-button/icon-button.comp
 import { ROMAN } from 'data/constants/roman.constant';
 import { Movie } from 'data/models/movie.model';
 import { MovieService } from 'data/services/movie.service';
-import { GetServerSideProps } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 interface MovieDetailProps {
   initialData: Movie;

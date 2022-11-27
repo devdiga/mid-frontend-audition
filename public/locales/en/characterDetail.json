@@ -1,6 +1,7 @@
 {
   "title": "Character Detail",
   "characterDetailCard": {
+    "movieAppearances": "See movie appearances",
     "name": "Name",
     "gender": "Gender",
     "birthDate": "Birth Date",

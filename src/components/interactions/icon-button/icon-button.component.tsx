@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
+
 import { IconButtonStyled } from './icon-button.styles';
 
 interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

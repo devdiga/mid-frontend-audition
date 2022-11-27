@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useDebounce } from 'hooks/debounce.hook';
 import { useEffect, useState } from 'react';
+
+import { useDebounce } from 'hooks/debounce.hook';
+
 import { InputContainer, InputStyled } from './input.styles';
 
 interface InputProps {

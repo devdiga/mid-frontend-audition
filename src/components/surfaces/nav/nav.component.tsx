@@ -1,10 +1,10 @@
-import { NavContent, NavContainer } from './nav.styles';
 import { NavItem } from 'components/interactions/nav-item/nav-item.component';
-
 import Chewbacca from '@images/chewbacca.svg';
 import Spacecraft from '@images/spacecraft.png';
 import R2D2 from '@images/r2-d2.svg';
 import Lightsaber from '@images/lightsaber.png';
+
+import { NavContent, NavContainer } from './nav.styles';
 
 const routes = [
   {

@@ -1,16 +1,15 @@
+import { useState } from 'react';
+import { GetStaticProps } from 'next';
+import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
+
+import Logo from '@images/logo.svg';
 import {
   HomeContainer,
   HomeContainerPresentationContainer
 } from '@styles/home.styles';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Head from 'next/head';
-import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
-import Logo from '@images/logo.svg';
-import { useState } from 'react';
-import { Button } from 'components/interactions/button/button.component';
 import { Presentation } from 'components/data-display/presentation/presentation.component';
-import { GetStaticProps } from 'next';
 
 const Home = () => {
   const { t } = useTranslation('home');

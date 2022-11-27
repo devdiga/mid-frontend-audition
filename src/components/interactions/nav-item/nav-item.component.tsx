@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
+
 import { NavItemContainer } from './nav-item.styles';
 
 interface NavItemProps {

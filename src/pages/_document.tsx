@@ -6,6 +6,7 @@ import Document, {
   DocumentContext
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+
 import i18nextConfig from '../../next-i18next.config';
 
 export default class MyDocument extends Document {

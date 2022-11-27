@@ -1,12 +1,14 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
+
 import { Button } from 'components/interactions/button/button.component';
 import { ROMAN } from 'data/constants/roman.constant';
 import { Character } from 'data/models/characters.model';
 import { Movie } from 'data/models/movie.model';
 import { CharacterService } from 'data/services/character.service';
 import { useDateFormat } from 'hooks/date-format.hook';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
 import {
   MovieDetailCardContainer,
   MovieDetailCharactersContainer,
@@ -56,10 +58,13 @@ export const MovieDetailCard: React.FC<MovieDetailCardProps> = ({
       </p>
       <h2>{movie.title}</h2>
       <hr />
+
       <p>{movie.opening_crawl}</p>
+
       <div style={{ textAlign: 'right', width: '100%' }}>
         <p>{format(movie.release_date)}</p>
       </div>
+
       <strong>
         <legend>{t('movieDetailCard.characters')}</legend>
       </strong>
@@ -73,9 +78,9 @@ export const MovieDetailCard: React.FC<MovieDetailCardProps> = ({
             {character?.name}
           </Button>
         ))}
-        {!movie.characters.length && (
+        {!cast.length && (
           <Button variant="text" onClick={getMovieCast} loading={loading}>
-            Ver Elenco
+            {t('movieDetailCard.seeCast')}
           </Button>
         )}
       </MovieDetailCharactersContainer>

@@ -1,6 +1,7 @@
 {
   "title": "Detalhe de Personagem",
   "characterDetailCard": {
+    "movieAppearances": "Ver participação em filmes",
     "name": "Nome",
     "gender": "Gênero",
     "birthDate": "Nascimento",

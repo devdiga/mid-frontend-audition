@@ -1,3 +1,8 @@
+import { useState } from 'react';
+import { GetServerSideProps } from 'next';
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { MoviesContainer, MoviesContent } from '@styles/movies.styles';
 import { MovieCard } from 'components/data-display/movie-card/movie-card.component';
 import { Button } from 'components/interactions/button/button.component';
@@ -5,10 +10,6 @@ import { Input } from 'components/interactions/Input/input.component';
 import { Movie } from 'data/models/movie.model';
 import { SwApiResponse } from 'data/models/swapi-response.model';
 import { MovieService } from 'data/services/movie.service';
-import { GetServerSideProps } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { HeaderPageContainer } from 'styles/header-page.styles';
 
 interface MoviesProps {

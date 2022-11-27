@@ -1,14 +1,16 @@
+import { useState } from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+
+import { Button } from 'components/interactions/button/button.component';
+import Logo from '@images/logo.svg';
+
 import {
   PresentationContainer,
   PresentationLogo,
   PresentationContent,
   PresentationButton
 } from './presentation.styles';
-import Logo from '@images/logo.svg';
-import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
-import { Button } from 'components/interactions/button/button.component';
 
 interface PresentationProps {
   onStart: () => void;
