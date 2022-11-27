@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const PresentationContainer = styled.main`
   position: relative;
   height: 450px;
+  width: 100%;
 
   * {
-    max-width: 100vw;
+    max-width: 100%;
   }
 `;
 
@@ -50,7 +51,7 @@ export const PresentationContent = styled.section<AnimationStart>`
   overflow: hidden;
   font-size: 48px;
   height: 1000px;
-  width: 800px;
+  width: 1000px;
   bottom: 0;
   left: 50%;
 
@@ -79,7 +80,7 @@ export const PresentationContent = styled.section<AnimationStart>`
   div {
     position: absolute;
     top: 100%;
-    animation: ${({ play }) => (play ? 'scroll 80s linear 11s' : 'unset')};
+    animation: ${({ play }) => (play ? 'scroll 100s linear 11s' : 'unset')};
   }
 
   @keyframes scroll {
