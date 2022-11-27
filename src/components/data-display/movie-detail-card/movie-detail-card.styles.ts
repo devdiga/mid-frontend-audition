@@ -18,13 +18,23 @@ export const MovieDetailCardContainer = styled.section`
 `;
 
 export const MovieDetailCharactersContainer = styled.div`
-  display: grid;
   width: 100%;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+
+  button {
+    width: auto;
+  }
 `;
 
 export const MovieDetailProducerContainer = styled.div`
-  display: grid;
+  display: flex;
   width: 100%;
-  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+
+  div {
+    width: 100%;
+  }
 `;

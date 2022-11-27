@@ -1,4 +1,6 @@
+import { Button } from 'components/interactions/button/button.component';
 import { Character } from 'data/models/characters.model';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { CharacterCardInfo } from '../character-card/character-card.styles';
 import {
@@ -13,6 +15,11 @@ export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
   character
 }) => {
   const { t } = useTranslation('characterDetail');
+  const { push } = useRouter();
+
+  const handleSelectMovie = (movieUrl: string) => {
+    push(`/movies/${movieUrl.replace(/\D/g, '')}`);
+  };
 
   return (
     <CharacterDetailCardContainer>
@@ -96,7 +103,13 @@ export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
       </strong>
       <CharacterDetailMoviesContainer>
         {character.films.map(movie => (
-          <p key={movie?.title}>{movie?.title}</p>
+          <Button
+            key={movie?.title}
+            variant="text"
+            onClick={() => handleSelectMovie(movie.url)}
+          >
+            {movie?.title}
+          </Button>
         ))}
       </CharacterDetailMoviesContainer>
     </CharacterDetailCardContainer>

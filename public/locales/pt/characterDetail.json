@@ -12,11 +12,11 @@
     "homeWorld": "Planeta Natal",
     "movies": "Filmes",
     "genders": {
-      "male": "Male",
-      "female": "Female",
-      "n/a": "Undefined",
-      "none": "Undefined",
-      "hermaphrodite": "Hermaphrodite"
+      "male": "Masculino",
+      "female": "Feminino",
+      "n/a": "Indefinido",
+      "none": "Indefinido",
+      "hermaphrodite": "Hermafrodita"
     },
     "unknown": "Unknown"
   }

@@ -23,6 +23,11 @@ export const CharacterDetailMoviesContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
+
+  button {
+    width: auto;
+  }
 `;
 
 export const CharacterDetailCardInfo = styled.div`

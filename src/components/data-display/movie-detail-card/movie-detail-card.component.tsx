@@ -2,6 +2,7 @@ import { Button } from 'components/interactions/button/button.component';
 import { ROMAN } from 'data/constants/roman.constant';
 import { Movie } from 'data/models/movie.model';
 import { useDateFormat } from 'hooks/date-format.hook';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import {
   MovieDetailCardContainer,
@@ -16,6 +17,11 @@ interface MovieDetailCardProps {
 export const MovieDetailCard: React.FC<MovieDetailCardProps> = ({ movie }) => {
   const { t } = useTranslation('movieDetail');
   const { format } = useDateFormat();
+  const { push } = useRouter();
+
+  const handleSelectCharacter = (characterUrl: string) => {
+    push(`/characters/${characterUrl.replace(/\D/g, '')}`);
+  };
 
   return (
     <MovieDetailCardContainer>
@@ -33,7 +39,13 @@ export const MovieDetailCard: React.FC<MovieDetailCardProps> = ({ movie }) => {
       </strong>
       <MovieDetailCharactersContainer>
         {movie.characters.map(character => (
-          <p key={character?.name}>{character?.name}</p>
+          <Button
+            key={character?.name}
+            variant="text"
+            onClick={() => handleSelectCharacter(character.url)}
+          >
+            {character?.name}
+          </Button>
         ))}
       </MovieDetailCharactersContainer>
 

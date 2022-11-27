@@ -12,12 +12,12 @@
     "homeWorld": "Home World",
     "movies": "Movies",
     "genders": {
-      "male": "Masculino",
-      "female": "Feminino",
-      "n/a": "Indefinido",
-      "none": "Indefinido",
-      "hermaphrodite": "Hermafrodita"
+      "male": "Male",
+      "female": "Female",
+      "n/a": "Undefined",
+      "none": "Undefined",
+      "hermaphrodite": "Hermaphrodite"
     },
-    "unknown": "Inserto"
+    "unknown": "Unknown"
   }
 }

@@ -14,12 +14,18 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   background: ${({ variant, theme }) =>
     variant === 'contained' ? theme.colors.button.main : 'transparent'};
 
-  border: 1px solid ${({ theme }) => theme.colors.button.main};
+  border: 1px solid
+    ${({ theme, variant }) =>
+      variant === 'contained' ? theme.colors.button.main : 'transparent'};
+
+  color: ${({ variant, theme }) =>
+    variant === 'contained' ? 'unset' : theme.colors.button.main};
 
   &:hover {
     background: ${({ variant, theme }) =>
-      variant === 'contained'
-        ? theme.colors.button.hover
-        : theme.colors.primary.main};
+      variant === 'contained' ? theme.colors.button.hover : 'transparent'};
+
+    color: ${({ variant, theme }) =>
+      variant === 'contained' ? 'unset' : theme.colors.button.hover};
   }
 `;
