@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDebounce } from 'hooks/debounce.hook';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { InputContainer, InputStyled } from './input.styles';
 
 interface InputProps {
@@ -15,12 +14,16 @@ export const Input: React.FC<InputProps> = ({
   loading
 }) => {
   const [value, setValue] = useState('');
+  const [oldValue, setOldValue] = useState('');
   const [focused, setFocused] = useState(false);
 
   const debounced = useDebounce(value, 600);
 
   useEffect(() => {
-    onChange(debounced);
+    if (debounced !== oldValue) {
+      onChange(debounced);
+      setOldValue(debounced);
+    }
   }, [debounced]);
 
   return (

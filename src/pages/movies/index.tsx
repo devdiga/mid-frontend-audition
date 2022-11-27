@@ -46,7 +46,6 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
       const searchData = await MovieService.getMovies({
         search: searchTerm
       });
-
       setData(searchData);
     } catch (err) {
       console.log(err);
