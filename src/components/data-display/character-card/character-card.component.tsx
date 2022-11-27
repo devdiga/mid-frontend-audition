@@ -1,4 +1,5 @@
 import { Character } from 'data/models/characters.model';
+import { useRouter } from 'next/router';
 import { useTransition } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -18,6 +19,7 @@ interface CharacterCardProps {
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   const { t } = useTranslation('characters');
+  const { push } = useRouter();
 
   const isColorValid = (color = '') => {
     const element = document.createElement('div');
@@ -28,7 +30,9 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   };
 
   return (
-    <CharacterCardContainer>
+    <CharacterCardContainer
+      onClick={() => push(`/characters/${character.url.replace(/\D/g, '')}`)}
+    >
       <CharacterCardInfo>
         <strong>{t('characterCard.name')}</strong>
         <span>{character.name}</span>

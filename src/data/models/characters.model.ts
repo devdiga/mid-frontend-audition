@@ -10,6 +10,6 @@ export interface Character {
   birth_year: string;
   gender: string;
   homeworld: string;
-  films: (Movie | string)[];
+  films: Movie[];
   url: string;
 }

@@ -1,0 +1,23 @@
+{
+  "title": "Detalhe de Personagem",
+  "characterDetailCard": {
+    "name": "Nome",
+    "gender": "Gênero",
+    "birthDate": "Nascimento",
+    "height": "Altura",
+    "weight": "Peso",
+    "hair": "Cor do Cabelo",
+    "skin": "Cor da pele",
+    "eye": "Cor do olho",
+    "homeWorld": "Planeta Natal",
+    "movies": "Filmes",
+    "genders": {
+      "male": "Male",
+      "female": "Female",
+      "n/a": "Undefined",
+      "none": "Undefined",
+      "hermaphrodite": "Hermaphrodite"
+    },
+    "unknown": "Unknown"
+  }
+}

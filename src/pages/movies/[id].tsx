@@ -2,17 +2,12 @@ import {
   MovieDetailContainer,
   MovieDetailHeader
 } from '@styles/movie-detail.styles';
-import { MoviesContainer, MoviesContent } from '@styles/movies.styles';
 import { Loading } from 'components/data-display/loading/loading.component';
-import { MovieCard } from 'components/data-display/movie-card/movie-card.component';
 import { MovieDetailCard } from 'components/data-display/movie-detail-card/movie-detail-card.component';
 import { Presentation } from 'components/data-display/presentation/presentation.component';
-import { Button } from 'components/interactions/button/button.component';
 import { IconButton } from 'components/interactions/icon-button/icon-button.component';
-import { Input } from 'components/interactions/Input/input.component';
 import { ROMAN } from 'data/constants/roman.constant';
 import { Movie } from 'data/models/movie.model';
-import { SwApiResponse } from 'data/models/swapi-response.model';
 import { CharacterService } from 'data/services/character.service';
 import { MovieService } from 'data/services/movie.service';
 import { GetServerSideProps } from 'next';
@@ -20,13 +15,12 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HeaderPageContainer } from 'styles/header-page.styles';
 
-interface MoviesProps {
+interface MovieDetailProps {
   initialData: Movie;
 }
 
-const Movies: React.FC<MoviesProps> = ({ initialData }) => {
+const MovieDetail: React.FC<MovieDetailProps> = ({ initialData }) => {
   const [data, setData] = useState<null | Movie>(null);
   const [started, setStarted] = useState(false);
 
@@ -78,7 +72,7 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
   );
 };
 
-export default Movies;
+export default MovieDetail;
 
 export const getServerSideProps: GetServerSideProps = async ({
   locale,
