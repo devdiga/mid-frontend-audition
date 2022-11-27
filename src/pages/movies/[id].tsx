@@ -17,6 +17,7 @@ import { CharacterService } from 'data/services/character.service';
 import { MovieService } from 'data/services/movie.service';
 import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HeaderPageContainer } from 'styles/header-page.styles';
@@ -30,6 +31,7 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
   const [started, setStarted] = useState(false);
 
   const { t } = useTranslation('movieDetail');
+  const router = useRouter();
 
   useEffect(() => {
     if (initialData) {
@@ -40,7 +42,7 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
       ).then(characters => setData({ ...initialData, characters }));
     }
   }, [initialData]);
-  console.log(data?.opening_crawl);
+
   return (
     <>
       {!started && (
@@ -48,7 +50,10 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
           {data ? (
             <>
               <MovieDetailHeader>
-                <IconButton icon={'fa-arrow-left'} />
+                <IconButton
+                  icon={'fa-arrow-left'}
+                  onClick={() => router.back()}
+                />
                 <h1>{t('title')}</h1>
               </MovieDetailHeader>
               <MovieDetailCard movie={data} />

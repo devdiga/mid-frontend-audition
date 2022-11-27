@@ -20,7 +20,7 @@ export const MovieDetailCard: React.FC<MovieDetailCardProps> = ({ movie }) => {
   return (
     <MovieDetailCardContainer>
       <p>
-        {t('episode')} {ROMAN[movie.episode_id - 1]}
+        {t('movieDetailCard.episode')} {ROMAN[movie.episode_id - 1]}
       </p>
       <h2>{movie.title}</h2>
       <hr />
@@ -29,7 +29,7 @@ export const MovieDetailCard: React.FC<MovieDetailCardProps> = ({ movie }) => {
         <p>{format(movie.release_date)}</p>
       </div>
       <strong>
-        <legend>{t('characters')}</legend>
+        <legend>{t('movieDetailCard.characters')}</legend>
       </strong>
       <MovieDetailCharactersContainer>
         {movie.characters.map(character => (
@@ -42,13 +42,13 @@ export const MovieDetailCard: React.FC<MovieDetailCardProps> = ({ movie }) => {
       <MovieDetailProducerContainer>
         <div>
           <strong>
-            <legend>{t('producer')}</legend>
+            <legend>{t('movieDetailCard.producer')}</legend>
           </strong>
           <p>{movie.producer}</p>
         </div>
         <div>
           <strong>
-            <legend>{t('director')}</legend>
+            <legend>{t('movieDetailCard.director')}</legend>
           </strong>
           <p>{movie.director}</p>
         </div>

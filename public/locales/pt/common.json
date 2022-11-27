@@ -15,5 +15,6 @@
     "homeTitle": "Inicio",
     "charactersTitle": "Personagens",
     "moviesTitle": "Filmes"
-  }
+  },
+  "playButton": "Inicia Apresentação"
 }

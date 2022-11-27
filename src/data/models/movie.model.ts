@@ -7,5 +7,6 @@ export interface Movie {
   director: string;
   producer: string;
   release_date: string;
+  url: string;
   characters: Character[];
 }

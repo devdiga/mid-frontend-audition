@@ -1,6 +1,5 @@
 {
   "title": "Movie Detail",
-  "playButton": "Start Presentation",
   "movieDetailCard": {
     "episode": "EPISODE",
     "characters": "Characters",

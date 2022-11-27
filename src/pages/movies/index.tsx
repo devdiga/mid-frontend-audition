@@ -70,6 +70,7 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
           <MovieCard key={movie.title} movie={movie} />
         ))}
       </MoviesContent>
+
       {!data?.results?.length && <p>{t('noData')}</p>}
 
       {data.next ? (
@@ -77,11 +78,7 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
           {t('nextPageButton')}
         </Button>
       ) : (
-        <>
-          {!!data?.results?.length && (
-            <small style={{ borderTop: '1px solid' }}>{t('finalList')}</small>
-          )}
-        </>
+        <small style={{ borderTop: '1px solid' }}>{t('finalList')}</small>
       )}
     </MoviesContainer>
   );

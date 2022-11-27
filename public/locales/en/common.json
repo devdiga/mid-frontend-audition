@@ -16,5 +16,6 @@
     "charactersTitle": "Characters",
     "moviesTitle": "Movies",
     "movieDetailTitle": "Movies"
-  }
+  },
+  "playButton": "Start Presentation"
 }

@@ -25,7 +25,7 @@ export const Presentation: React.FC<PresentationProps> = ({
   episode,
   opening = []
 }) => {
-  const { t } = useTranslation('home');
+  const { t } = useTranslation();
   const [play, setPlay] = useState(false);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 

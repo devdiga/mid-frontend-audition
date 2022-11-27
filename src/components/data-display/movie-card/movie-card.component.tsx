@@ -1,5 +1,6 @@
 import { Movie } from 'data/models/movie.model';
 import { useDateFormat } from 'hooks/date-format.hook';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { MovieCardContainer, MovieCardInfo } from './movie-card.styles';
 
@@ -10,9 +11,12 @@ interface MovieCardProps {
 export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   const { t } = useTranslation('movies');
   const { format } = useDateFormat();
+  const { push } = useRouter();
 
   return (
-    <MovieCardContainer>
+    <MovieCardContainer
+      onClick={() => push(`/movies/${movie.url.replace(/\D/g, '')}`)}
+    >
       <MovieCardInfo>
         <strong>{t('movieCard.title')}</strong>
         <span>{movie.title}</span>
