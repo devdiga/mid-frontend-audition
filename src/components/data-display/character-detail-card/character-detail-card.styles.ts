@@ -20,6 +20,7 @@ export const CharacterDetailCardContainer = styled.section`
 
 export const CharacterDetailMoviesContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -37,4 +38,14 @@ export const CharacterDetailCardInfo = styled.div`
   span {
     font-size: 14px;
   }
+`;
+
+export const CharacterDetailCardInfoContainer = styled.div`
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 `;

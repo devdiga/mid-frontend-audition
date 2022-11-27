@@ -41,4 +41,9 @@ export const NavItemContainer = styled(Link)<NavItemContainerProps>`
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary.main};
   }
+
+  @media (max-width: 1155px) {
+    font-size: 10px;
+    padding: ${({ theme }) => theme.space[2]} 0;
+  }
 `;

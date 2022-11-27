@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { CharacterCardInfo } from '../character-card/character-card.styles';
 import {
   CharacterDetailCardContainer,
+  CharacterDetailCardInfoContainer,
   CharacterDetailMoviesContainer
 } from './character-detail-card.styles';
 
@@ -26,13 +27,7 @@ export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
       <h2>{character.name}</h2>
       <hr />
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}
-      >
+      <CharacterDetailCardInfoContainer>
         <CharacterCardInfo>
           <strong>{t('characterDetailCard.gender')}</strong>
           <span>{t(`characterDetailCard.genders.${character.gender}`)}</span>
@@ -51,17 +46,11 @@ export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
           <strong>{t('characterDetailCard.homeWorld')}</strong>
           <span>{character.homeworld}</span>
         </CharacterCardInfo>
-      </div>
+      </CharacterDetailCardInfoContainer>
 
       <br />
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}
-      >
+      <CharacterDetailCardInfoContainer>
         <CharacterCardInfo>
           <strong>{t('characterDetailCard.height')}</strong>
           {character.height === 'unknown' ? (
@@ -94,7 +83,7 @@ export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
           <strong>{t('characterDetailCard.skin')}</strong>
           <span>{character.skin_color}</span>
         </CharacterCardInfo>
-      </div>
+      </CharacterDetailCardInfoContainer>
 
       <br />
 

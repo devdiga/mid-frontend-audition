@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const PresentationContainer = styled.main`
   position: relative;
   height: 450px;
+
+  * {
+    max-width: 100vw;
+  }
 `;
 
 interface AnimationStart {
@@ -92,6 +96,10 @@ export const PresentationButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1155px) {
+    display: none;
+  }
 
   button {
     max-width: 200px;

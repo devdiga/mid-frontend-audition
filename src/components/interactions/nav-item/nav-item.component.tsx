@@ -23,8 +23,8 @@ export const NavItem: React.FC<NavItemProps> = ({
       first={first ? 1 : 0}
       selected={route === href ? 1 : 0}
     >
-      <Image src={icon} alt={t(`nav.${title}`)} />
-      <span>{t(`nav.${title}`)}</span>
+      <Image src={icon} alt={t(`nav.${title}`) as string} />
+      <p>{t(`nav.${title}`)}</p>
     </NavItemContainer>
   );
 };

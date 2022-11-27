@@ -20,4 +20,11 @@ export const CharactersContent = styled.main`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 16px;
+
+  @media (max-width: 1155px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
 `;
