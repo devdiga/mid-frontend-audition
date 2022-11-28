@@ -13,6 +13,7 @@ import {
   CharacterDetailCardInfoContainer,
   CharacterDetailMoviesContainer
 } from './character-detail-card.styles';
+import { toast } from 'react-toastify';
 
 interface CharacterDetailCardProps {
   character: Character;
@@ -42,7 +43,7 @@ export const CharacterDetailCard: React.FC<CharacterDetailCardProps> = ({
       );
       setMovies(movieAppearances);
     } catch (err) {
-      console.log(err);
+      toast.error('defaultMessage');
     } finally {
       setLoading(false);
     }

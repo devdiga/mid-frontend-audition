@@ -1,7 +1,11 @@
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import useDarkMode from 'use-dark-mode';
+import { useRouter } from 'next/router';
 import { appWithTranslation, useTranslation } from 'next-i18next';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Footer } from 'components/surfaces/footer/footer.component';
 import { Header } from 'components/surfaces/header/header.component';
@@ -9,7 +13,6 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'styles/global/global.styles';
 import { darkTheme, lightTheme } from 'styles/global/theme.styles';
 import { AppContainer } from 'styles/pages/_app.styles';
-import { useRouter } from 'next/router';
 
 const App = ({
   Component,
@@ -28,8 +31,11 @@ const App = ({
             : `${t(`pageTitle.${pageProps.pageTitle}`)} | Star Wars`}
         </title>
       </Head>
+
       <ThemeProvider theme={darkmode.value ? darkTheme : lightTheme}>
         <GlobalStyle />
+        <ToastContainer autoClose={5000} closeOnClick />
+
         {route === '/404' ? (
           <Component {...pageProps} />
         ) : (

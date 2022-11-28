@@ -17,5 +17,8 @@
     "moviesTitle": "Filmes",
     "dashboardTitle": "Estatísticas"
   },
+  "errors": {
+    "defaultMessage": "Oops! Algo deu errado ao carregar os dados, tente novamente mais tarde!"
+  },
   "playButton": "Inicia Apresentação"
 }

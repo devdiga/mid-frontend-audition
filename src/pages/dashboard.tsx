@@ -13,6 +13,7 @@ import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import { HeaderPageContainer } from 'styles/header-page.styles';
 
 interface DashboardProps {
@@ -45,7 +46,7 @@ const Dashboard: React.FC<DashboardProps> = ({ movies, characters }) => {
       });
       loadMoreCharacters(loadedCharacters.results);
     } catch (err) {
-      console.log(err);
+      toast.error('defaultMessage');
     } finally {
       setLoading(false);
     }

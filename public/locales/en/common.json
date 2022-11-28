@@ -17,5 +17,8 @@
     "moviesTitle": "Movies",
     "dashboardTitle": "Dashboard"
   },
+  "errors": {
+    "defaultMessage": "Oops! Something went wrong loading the data, please try again later!"
+  },
   "playButton": "Start Presentation"
 }

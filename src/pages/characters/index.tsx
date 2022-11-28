@@ -14,6 +14,7 @@ import { Character } from 'data/models/characters.model';
 import { SwApiResponse } from 'data/models/swapi-response.model';
 import { CharacterService } from 'data/services/character.service';
 import { HeaderPageContainer } from 'styles/header-page.styles';
+import { toast } from 'react-toastify';
 
 interface CharactersProps {
   initialData: SwApiResponse<Character>;
@@ -38,7 +39,7 @@ const Characters: React.FC<CharactersProps> = ({ initialData }) => {
         results: [...prev.results, ...nextPageData.results]
       }));
     } catch (err) {
-      console.log(err);
+      toast.error('defaultMessage');
     } finally {
       setNextPageLoading(false);
     }
@@ -53,7 +54,7 @@ const Characters: React.FC<CharactersProps> = ({ initialData }) => {
 
       setData(searchData);
     } catch (err) {
-      console.log(err);
+      toast.error('defaultMessage');
     } finally {
       setSearchLoading(false);
     }

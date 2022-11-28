@@ -14,6 +14,7 @@ import {
   MovieDetailCharactersContainer,
   MovieDetailProducerContainer
 } from './movie-detail-card.styles';
+import { toast } from 'react-toastify';
 
 interface MovieDetailCardProps {
   movie: Movie;
@@ -45,7 +46,7 @@ export const MovieDetailCard: React.FC<MovieDetailCardProps> = ({
       );
       setCast(characters);
     } catch (err) {
-      console.log(err);
+      toast.error('defaultMessage');
     } finally {
       setLoading(false);
     }

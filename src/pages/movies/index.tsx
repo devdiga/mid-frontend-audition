@@ -11,6 +11,7 @@ import { Movie } from 'data/models/movie.model';
 import { SwApiResponse } from 'data/models/swapi-response.model';
 import { MovieService } from 'data/services/movie.service';
 import { HeaderPageContainer } from 'styles/header-page.styles';
+import { toast } from 'react-toastify';
 
 interface MoviesProps {
   initialData: SwApiResponse<Movie>;
@@ -35,7 +36,7 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
         results: [...prev.results, ...nextPageData.results]
       }));
     } catch (err) {
-      console.log(err);
+      toast.error('defaultMessage');
     } finally {
       setNextPageLoading(false);
     }
@@ -49,7 +50,7 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
       });
       setData(searchData);
     } catch (err) {
-      console.log(err);
+      toast.error('defaultMessage');
     } finally {
       setSearchLoading(false);
     }
