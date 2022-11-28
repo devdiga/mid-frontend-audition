@@ -15,7 +15,7 @@
     "homeTitle": "Home",
     "charactersTitle": "Characters",
     "moviesTitle": "Movies",
-    "movieDetailTitle": "Movies"
+    "dashboardTitle": "Dashboard"
   },
   "playButton": "Start Presentation"
 }

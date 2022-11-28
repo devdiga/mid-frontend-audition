@@ -56,7 +56,7 @@ export const lightTheme = {
     background: {
       main: '#fff',
       contrast: '#24292f',
-      image: '/img/background-light.jpg'
+      image: ''
     },
     navBar: '#010409',
     navBarInput: 'transparent',

@@ -94,20 +94,24 @@ const Characters: React.FC<CharactersProps> = ({ initialData }) => {
 export default Characters;
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  let initialData;
   try {
-    initialData = await CharacterService.getCharacters({});
+    const initialData = await CharacterService.getCharacters({});
+    return {
+      props: {
+        ...(await serverSideTranslations(locale ?? 'en', [
+          'characters',
+          'common'
+        ])),
+        pageTitle: 'charactersTitle',
+        initialData
+      }
+    };
   } catch (err) {
-    console.error(err);
+    return {
+      redirect: {
+        destination: '/404',
+        permanent: false
+      }
+    };
   }
-  return {
-    props: {
-      ...(await serverSideTranslations(locale ?? 'en', [
-        'characters',
-        'common'
-      ])),
-      pageTitle: 'charactersTitle',
-      initialData
-    }
-  };
 };

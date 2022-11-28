@@ -87,17 +87,21 @@ const Movies: React.FC<MoviesProps> = ({ initialData }) => {
 export default Movies;
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  let initialData;
   try {
-    initialData = await MovieService.getMovies({});
+    const initialData = await MovieService.getMovies({});
+    return {
+      props: {
+        ...(await serverSideTranslations(locale ?? 'en', ['movies', 'common'])),
+        pageTitle: 'moviesTitle',
+        initialData
+      }
+    };
   } catch (err) {
-    console.error(err);
+    return {
+      redirect: {
+        destination: '/404',
+        permanent: false
+      }
+    };
   }
-  return {
-    props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['movies', 'common'])),
-      pageTitle: 'moviesTitle',
-      initialData
-    }
-  };
 };

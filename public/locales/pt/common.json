@@ -14,7 +14,8 @@
   "pageTitle": {
     "homeTitle": "Inicio",
     "charactersTitle": "Personagens",
-    "moviesTitle": "Filmes"
+    "moviesTitle": "Filmes",
+    "dashboardTitle": "Estatísticas"
   },
   "playButton": "Inicia Apresentação"
 }
