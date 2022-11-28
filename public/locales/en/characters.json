@@ -1,0 +1,24 @@
+{
+  "title": "Characters List",
+  "search": "Search Characters",
+  "noData": "No characters found!",
+  "nextPageButton": "Load More",
+  "finalList": "That is all!",
+  "characterCard": {
+    "name": "Name",
+    "gender": "Gender",
+    "birthDate": "Birth Date",
+    "characteristics": "Characteristics",
+    "hair": "Hair",
+    "skin": "Skin",
+    "eye": "Eye",
+    "genders": {
+      "male": "Male",
+      "female": "Female",
+      "n/a": "Undefined",
+      "none": "Undefined",
+      "hermaphrodite": "Hermaphrodite"
+    },
+    "unknown": "Unknown"
+  }
+}

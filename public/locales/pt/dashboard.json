@@ -1,0 +1,14 @@
+{
+  "title": "Estatísticas",
+  "nextPageButton": "Carregar Mais Personagens",
+  "heightAndMassTitle": "Comparação de ALTURA e PESO",
+  "genderDiversity": "Diversidade de Gênero",
+  "movieAppearances": "Participações em Filmes",
+  "moviesCastLength": "Elenco do Filme",
+  "male": "Masculino",
+  "female": "Feminino",
+  "hermaphrodite": "Hermafrodita",
+  "undefined": "Indefinido",
+  "height": "Altura",
+  "weight": "Peso"
+}

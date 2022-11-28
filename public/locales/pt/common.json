@@ -1,0 +1,25 @@
+{
+  "locale": "pt-BR",
+  "footer": {
+    "follow": "Siga Me",
+    "developer": "Desenvolvido por",
+    "data": "Dados disponibilizados por SWAPI ©2022"
+  },
+  "nav": {
+    "home": "Início",
+    "films": "Filmes",
+    "people": "Personagens",
+    "dashboard": "Estatísticas"
+  },
+  "pageTitle": {
+    "homeTitle": "Inicio",
+    "charactersTitle": "Personagens",
+    "moviesTitle": "Filmes",
+    "dashboardTitle": "Estatísticas",
+    "notFoundTitle": "Não Encontrada"
+  },
+  "errors": {
+    "defaultMessage": "Oops! Algo deu errado ao carregar os dados, tente novamente mais tarde!"
+  },
+  "playButton": "Inicia Apresentação"
+}

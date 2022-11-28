@@ -1,0 +1,24 @@
+{
+  "title": "Lista de Personagens",
+  "search": "Filtrar Personagens",
+  "noData": "Nenhum personagem encontrado!",
+  "nextPageButton": "Carregar Mais",
+  "finalList": "Isso é tudo!",
+  "characterCard": {
+    "name": "Nome",
+    "gender": "Gênero",
+    "birthDate": "Nascimento",
+    "characteristics": "Características",
+    "hair": "Pelo",
+    "skin": "Pele",
+    "eye": "Olho",
+    "genders": {
+      "male": "Masculino",
+      "female": "Feminino",
+      "n/a": "Indefinido",
+      "none": "Indefinido",
+      "hermaphrodite": "Hermafrodita"
+    },
+    "unknown": "Inserto"
+  }
+}

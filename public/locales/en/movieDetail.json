@@ -1,0 +1,10 @@
+{
+  "title": "Movie Detail",
+  "movieDetailCard": {
+    "episode": "EPISODE",
+    "characters": "Characters",
+    "director": "Director",
+    "producer": "Producer",
+    "seeCast": "See Cast"
+  }
+}

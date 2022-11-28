@@ -1,0 +1,14 @@
+{
+  "title": "Dashboard",
+  "nextPageButton": "Load More Characters",
+  "heightAndMassTitle": "HEIGHT and WEIGHT comparison",
+  "genderDiversity": "Gender Diversity",
+  "movieAppearances": "Movie Appearances",
+  "moviesCastLength": "Movie Cast",
+  "male": "Male",
+  "female": "Female",
+  "hermaphrodite": "Hermaphrodite",
+  "undefined": "Undefined",
+  "height": "Height",
+  "weight": "Weight"
+}

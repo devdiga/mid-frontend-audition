@@ -1,0 +1,24 @@
+{
+  "title": "Character Detail",
+  "characterDetailCard": {
+    "movieAppearances": "See movie appearances",
+    "name": "Name",
+    "gender": "Gender",
+    "birthDate": "Birth Date",
+    "height": "Height",
+    "weight": "Weight",
+    "hair": "Hair",
+    "skin": "Skin",
+    "eye": "Eye",
+    "homeWorld": "Home World",
+    "movies": "Movies",
+    "genders": {
+      "male": "Male",
+      "female": "Female",
+      "n/a": "Undefined",
+      "none": "Undefined",
+      "hermaphrodite": "Hermaphrodite"
+    },
+    "unknown": "Unknown"
+  }
+}
