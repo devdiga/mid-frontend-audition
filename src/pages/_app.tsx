@@ -9,10 +9,15 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'styles/global/global.styles';
 import { darkTheme, lightTheme } from 'styles/global/theme.styles';
 import { AppContainer } from 'styles/pages/_app.styles';
+import { useRouter } from 'next/router';
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({
+  Component,
+  pageProps
+}: AppProps<{ noTranslate: boolean; pageTitle: string }>) => {
   const darkmode = useDarkMode(true);
   const { t } = useTranslation();
+  const { route } = useRouter();
 
   return (
     <>
@@ -25,11 +30,15 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <ThemeProvider theme={darkmode.value ? darkTheme : lightTheme}>
         <GlobalStyle />
-        <AppContainer>
-          <Header />
+        {route === '/404' ? (
           <Component {...pageProps} />
-          <Footer />
-        </AppContainer>
+        ) : (
+          <AppContainer>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+          </AppContainer>
+        )}
       </ThemeProvider>
     </>
   );
