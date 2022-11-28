@@ -15,7 +15,8 @@
     "homeTitle": "Home",
     "charactersTitle": "Characters",
     "moviesTitle": "Movies",
-    "dashboardTitle": "Dashboard"
+    "dashboardTitle": "Dashboard",
+    "notFoundTitle": "Not Found"
   },
   "errors": {
     "defaultMessage": "Oops! Something went wrong loading the data, please try again later!"

@@ -15,7 +15,8 @@
     "homeTitle": "Inicio",
     "charactersTitle": "Personagens",
     "moviesTitle": "Filmes",
-    "dashboardTitle": "Estatísticas"
+    "dashboardTitle": "Estatísticas",
+    "notFoundTitle": "Não Encontrada"
   },
   "errors": {
     "defaultMessage": "Oops! Algo deu errado ao carregar os dados, tente novamente mais tarde!"
