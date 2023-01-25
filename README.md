@@ -1,4 +1,4 @@
-My Project
+Teste Diga
 
 Instalação
 Para instalar as dependências do projeto, você precisará ter o Yarn instalado em sua máquina.
