@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <v-main>
-      <StarWarsLibrary />
+      <MainPage />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-import StarWarsLibrary from '@/components/StarWarsLibrary.vue'
+import MainPage from "@/components/HomePage.vue";
 </script>
