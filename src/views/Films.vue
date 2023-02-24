@@ -1,9 +1,9 @@
 <template>
   <v-col cols="12">
     <Page
-      title="People"
+      title="Films"
       :headers="headers"
-      endpoint="people"
+      endpoint="films"
    />
   </v-col>
 </template>
@@ -17,9 +17,9 @@ export default {
   data () {
     return {
       headers: [
-        {title: 'Name', attr: 'name'},
-        {title: 'Gender', attr: 'gender'},
-        {title: 'Birth Year', attr: 'birth_year'},
+        {title: 'Title', attr: 'title'},
+        {title: 'Director', attr: 'director'},
+        {title: 'Producer', attr: 'producer'},
       ],
     }
   },

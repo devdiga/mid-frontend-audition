@@ -47,7 +47,10 @@
       </v-app-bar>
 
     <v-main>
-      <router-view />
+      <v-col cols="12">
+        <router-view />
+      </v-col>
+
     </v-main>
   </v-app>
 </template>
@@ -59,8 +62,10 @@ export default {
   data: () => ({
     drawer: true,
     menu: [
-      {title: 'Home', icon: 'mdi-home', to: '/'},
-      {title: 'Pessoas', icon: 'mdi-account-group', to: '/people'},
+      {title: 'Dashboard', icon: 'mdi-home', to: '/'},
+      {title: 'People', icon: 'mdi-account-group', to: '/people'},
+      {title: 'Films', icon: 'mdi-account-group', to: '/films'},
+      {title: 'Planets', icon: 'mdi-account-group', to: '/planets'},
     ],
     AppBarBackground: AppBarBackground,
   }),
