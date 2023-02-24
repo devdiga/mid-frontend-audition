@@ -1,5 +1,5 @@
 <template>
-  <h1>Films</h1>
+  <h1>People</h1>
 </template>
 
 <script>
