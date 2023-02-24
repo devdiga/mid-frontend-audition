@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <StarWarsLibrary />
+      <router-view />
     </v-main>
   </v-app>
 </template>
