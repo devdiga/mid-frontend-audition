@@ -266,8 +266,6 @@ export default {
 
         this.peopleBySkinColorChart.chartOptions.xaxis.categories = Object.keys(this.peopleBySkinColorChart.chartOptions.xaxis.categories);
 
-        console.log("teste");
-
         this.peopleBySkinColorChart.chartSeries[0].data = data.results.reduce((skin_color, person) => {
           if (!skin_color[person.skin_color]) {
             skin_color[person.skin_color] = 1;
@@ -277,9 +275,6 @@ export default {
           return skin_color;
         }, {});
 
-        console.log("help")
-        console.log(this.peopleBySkinColorChart.chartSeries[0].data);
-
           /********** HELPER FOR TREE CHART******************/
 
             const newArray = Object.entries(this.peopleBySkinColorChart.chartSeries[0].data).map(function(entry) {
@@ -288,11 +283,6 @@ export default {
 
             this.treeChart.chartOptions.series = [{data: newArray }]
 
-            console.log("treeChart");
-            console.log(this.treeChart);
-
-            console.log("new array");
-            console.log(newArray);
           /********** END HELPER FOR TREE CHART******************/
 
         this.peopleBySkinColorChart.chartSeries[0].data = Object.values(this.peopleBySkinColorChart.chartSeries[0].data);

@@ -56,9 +56,6 @@ export default {
       .then(({ data }) => {
         this.data = data.results;
         this.totalRegisters = data.count
-
-        console.log("dados retornados mounted");
-        console.log(data);
       })
       .catch((error) => {
         alert(error);
