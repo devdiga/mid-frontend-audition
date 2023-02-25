@@ -1,6 +1,6 @@
 <template>
 <v-row>
-  <v-col cols="6">
+  <v-col cols="4">
     <v-card>
 
       <div v-if="loading" class="d-flex justify-center">
@@ -11,14 +11,19 @@
       </div>
 
       <div v-if="!loading">
-        <apexchart type="bar" :options="chartOptions" :series="chartSeries" height="350" />
+        <apexchart
+          type="bar"
+          :options="peopleByGenderChart.chartOptions"
+          :series="peopleByGenderChart.chartSeries"
+          height="350"
+        />
       </div>
 
     </v-card>
 
   </v-col>
 
-  <v-col cols="6">
+  <v-col cols="4">
     <v-card>
 
       <div v-if="loading" class="d-flex justify-center">
@@ -29,7 +34,35 @@
       </div>
 
       <div v-if="!loading">
-        <apexchart type="bar" :options="chartOptions" :series="chartSeries" height="350" />
+        <apexchart
+          type="bar"
+          :options="peopleByEyeColorChart.chartOptions"
+          :series="peopleByEyeColorChart.chartSeries"
+          height="350"
+        />
+      </div>
+
+    </v-card>
+
+  </v-col>
+
+    <v-col cols="4">
+    <v-card>
+
+      <div v-if="loading" class="d-flex justify-center">
+        <v-progress-circular
+          indeterminate
+          color="primary"
+        />
+      </div>
+
+      <div v-if="!loading">
+        <apexchart
+          type="bar"
+          :options="peopleBySkinColorChart.chartOptions"
+          :series="peopleBySkinColorChart.chartSeries"
+          height="350"
+        />
       </div>
 
     </v-card>
@@ -53,7 +86,8 @@ export default {
   data () {
     return {
       loading: false,
-      chartOptions: {
+      peopleByGenderChart: {
+        chartOptions: {
         chart: {
           id: "vuechart-example"
         },
@@ -70,6 +104,46 @@ export default {
         name: "People",
         data: []
       }]
+      },
+      peopleByEyeColorChart: {
+        chartOptions: {
+          chart: {
+            id: "vuechart-example"
+          },
+          title: {
+            text: "How many people by eye color",
+            align: "center"
+          },
+          colors:['#E91E63'],
+          xaxis: {
+            categories: []
+          }
+        },
+        chartSeries: [{
+          name: "People",
+          data: []
+        }]
+      },
+      peopleBySkinColorChart: {
+        chartOptions: {
+          chart: {
+            id: "vuechart-example"
+          },
+          title: {
+            text: "How many people by skin color",
+            align: "center"
+          },
+          colors:['#9C27B0'],
+          xaxis: {
+            categories: []
+          }
+        },
+        chartSeries: [{
+          name: "People",
+          data: []
+        }]
+      },
+
     }
   },
   mounted(){
@@ -80,16 +154,16 @@ export default {
         console.log("get data")
         console.log(data.results)
 
-        this.chartOptions.xaxis.categories = data.results.reduce((gender, person) => {
+        this.peopleByGenderChart.chartOptions.xaxis.categories = data.results.reduce((gender, person) => {
           if (!gender[person.gender]) {
             gender[person.gender] = true;
           }
           return gender;
         }, {});
 
-        this.chartOptions.xaxis.categories = Object.keys(this.chartOptions.xaxis.categories);
+        this.peopleByGenderChart.chartOptions.xaxis.categories = Object.keys(this.peopleByGenderChart.chartOptions.xaxis.categories);
 
-        this.chartSeries[0].data = data.results.reduce((gender, person) => {
+        this.peopleByGenderChart.chartSeries[0].data = data.results.reduce((gender, person) => {
           if (!gender[person.gender]) {
             gender[person.gender] = 1;
           } else {
@@ -98,7 +172,52 @@ export default {
           return gender;
         }, {});
 
-        this.chartSeries[0].data = Object.values(this.chartSeries[0].data);
+        this.peopleByGenderChart.chartSeries[0].data = Object.values(this.peopleByGenderChart.chartSeries[0].data);
+
+        /***********************************************************************/
+
+        this.peopleByEyeColorChart.chartOptions.xaxis.categories = data.results.reduce((eye_color, person) => {
+          if (!eye_color[person.eye_color]) {
+            eye_color[person.eye_color] = true;
+          }
+          return eye_color;
+        }, {});
+
+        this.peopleByEyeColorChart.chartOptions.xaxis.categories = Object.keys(this.peopleByEyeColorChart.chartOptions.xaxis.categories);
+
+        this.peopleByEyeColorChart.chartSeries[0].data = data.results.reduce((eye_color, person) => {
+          if (!eye_color[person.eye_color]) {
+            eye_color[person.eye_color] = 1;
+          } else {
+            eye_color[person.eye_color] += 1;
+          }
+          return eye_color;
+        }, {});
+
+        this.peopleByEyeColorChart.chartSeries[0].data = Object.values(this.peopleByEyeColorChart.chartSeries[0].data);
+
+        /***********************************************************************/
+
+        this.peopleBySkinColorChart.chartOptions.xaxis.categories = data.results.reduce((skin_color, person) => {
+          if (!skin_color[person.skin_color]) {
+            skin_color[person.skin_color] = true;
+          }
+          return skin_color;
+        }, {});
+
+        this.peopleBySkinColorChart.chartOptions.xaxis.categories = Object.keys(this.peopleBySkinColorChart.chartOptions.xaxis.categories);
+
+        this.peopleBySkinColorChart.chartSeries[0].data = data.results.reduce((skin_color, person) => {
+          if (!skin_color[person.skin_color]) {
+            skin_color[person.skin_color] = 1;
+          } else {
+            skin_color[person.skin_color] += 1;
+          }
+          return skin_color;
+        }, {});
+
+        this.peopleBySkinColorChart.chartSeries[0].data = Object.values(this.peopleBySkinColorChart.chartSeries[0].data);
+
 
       })
       .catch((error) => {
