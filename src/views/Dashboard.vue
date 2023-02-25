@@ -127,6 +127,7 @@ export default {
     return {
       loading: false,
       snackbar: false,
+      peopleData: [],
       stackbarText: '',
       peopleByGenderChart: {
         chartOptions: {
@@ -197,7 +198,8 @@ export default {
           },
           plotOptions: {
             treemap: {
-              distributed: true
+              distributed: true,
+              enableShades: false
             }
           },
 
@@ -212,89 +214,97 @@ export default {
   mounted(){
     this.loading = true
     axios.get('https://swapi.dev/api/people')
-      .then(({ data }) => {
-        this.peopleByGenderChart.chartOptions.xaxis.categories = data.results.reduce((gender, person) => {
-          if (!gender[person.gender]) {
-            gender[person.gender] = true;
-          }
-          return gender;
-        }, {});
+      .then( response1 => {
 
-        this.peopleByGenderChart.chartOptions.xaxis.categories = Object.keys(this.peopleByGenderChart.chartOptions.xaxis.categories);
+        this.peopleData = response1.data.results
 
-        this.peopleByGenderChart.chartSeries[0].data = data.results.reduce((gender, person) => {
-          if (!gender[person.gender]) {
-            gender[person.gender] = 1;
-          } else {
-            gender[person.gender] += 1;
-          }
-          return gender;
-        }, {});
+        return axios.get('https://swapi.dev/api/people?page=2')
+      })
+      .then( response2 => {
 
-        this.peopleByGenderChart.chartSeries[0].data = Object.values(this.peopleByGenderChart.chartSeries[0].data);
-
-        /***********************************************************************/
-
-        this.peopleByEyeColorChart.chartOptions.xaxis.categories = data.results.reduce((eye_color, person) => {
-          if (!eye_color[person.eye_color]) {
-            eye_color[person.eye_color] = true;
-          }
-          return eye_color;
-        }, {});
-
-        this.peopleByEyeColorChart.chartOptions.xaxis.categories = Object.keys(this.peopleByEyeColorChart.chartOptions.xaxis.categories);
-
-        this.peopleByEyeColorChart.chartSeries[0].data = data.results.reduce((eye_color, person) => {
-          if (!eye_color[person.eye_color]) {
-            eye_color[person.eye_color] = 1;
-          } else {
-            eye_color[person.eye_color] += 1;
-          }
-          return eye_color;
-        }, {});
-
-        this.peopleByEyeColorChart.chartSeries[0].data = Object.values(this.peopleByEyeColorChart.chartSeries[0].data);
-
-        /***********************************************************************/
-
-        this.peopleBySkinColorChart.chartOptions.xaxis.categories = data.results.reduce((skin_color, person) => {
-          if (!skin_color[person.skin_color]) {
-            skin_color[person.skin_color] = true;
-          }
-          return skin_color;
-        }, {});
-
-        this.peopleBySkinColorChart.chartOptions.xaxis.categories = Object.keys(this.peopleBySkinColorChart.chartOptions.xaxis.categories);
-
-        this.peopleBySkinColorChart.chartSeries[0].data = data.results.reduce((skin_color, person) => {
-          if (!skin_color[person.skin_color]) {
-            skin_color[person.skin_color] = 1;
-          } else {
-            skin_color[person.skin_color] += 1;
-          }
-          return skin_color;
-        }, {});
-
-          /********** HELPER FOR TREE CHART******************/
-
-            const newArray = Object.entries(this.peopleBySkinColorChart.chartSeries[0].data).map(function(entry) {
-              return { x: entry[0], y: entry[1] };
-            });
-
-            this.treeChart.chartOptions.series = [{data: newArray }]
-
-          /********** END HELPER FOR TREE CHART******************/
-
-        this.peopleBySkinColorChart.chartSeries[0].data = Object.values(this.peopleBySkinColorChart.chartSeries[0].data);
-
-        /***********************************************************************/
+          this.peopleData = this.peopleData.concat(response2.data.results)
 
 
+          this.peopleByGenderChart.chartOptions.xaxis.categories = this.peopleData.reduce((gender, person) => {
+            if (!gender[person.gender]) {
+              gender[person.gender] = true;
+            }
+            return gender;
+          }, {});
+
+          this.peopleByGenderChart.chartOptions.xaxis.categories = Object.keys(this.peopleByGenderChart.chartOptions.xaxis.categories);
+
+          this.peopleByGenderChart.chartSeries[0].data = this.peopleData.reduce((gender, person) => {
+            if (!gender[person.gender]) {
+              gender[person.gender] = 1;
+            } else {
+              gender[person.gender] += 1;
+            }
+            return gender;
+          }, {});
+
+          this.peopleByGenderChart.chartSeries[0].data = Object.values(this.peopleByGenderChart.chartSeries[0].data);
+
+          /***********************************************************************/
+
+          this.peopleByEyeColorChart.chartOptions.xaxis.categories = this.peopleData.reduce((eye_color, person) => {
+            if (!eye_color[person.eye_color]) {
+              eye_color[person.eye_color] = true;
+            }
+            return eye_color;
+          }, {});
+
+          this.peopleByEyeColorChart.chartOptions.xaxis.categories = Object.keys(this.peopleByEyeColorChart.chartOptions.xaxis.categories);
+
+          this.peopleByEyeColorChart.chartSeries[0].data = this.peopleData.reduce((eye_color, person) => {
+            if (!eye_color[person.eye_color]) {
+              eye_color[person.eye_color] = 1;
+            } else {
+              eye_color[person.eye_color] += 1;
+            }
+            return eye_color;
+          }, {});
+
+          this.peopleByEyeColorChart.chartSeries[0].data = Object.values(this.peopleByEyeColorChart.chartSeries[0].data);
+
+          /***********************************************************************/
+
+          this.peopleBySkinColorChart.chartOptions.xaxis.categories = this.peopleData.reduce((skin_color, person) => {
+            if (!skin_color[person.skin_color]) {
+              skin_color[person.skin_color] = true;
+            }
+            return skin_color;
+          }, {});
+
+          this.peopleBySkinColorChart.chartOptions.xaxis.categories = Object.keys(this.peopleBySkinColorChart.chartOptions.xaxis.categories);
+
+          this.peopleBySkinColorChart.chartSeries[0].data = this.peopleData.reduce((skin_color, person) => {
+            if (!skin_color[person.skin_color]) {
+              skin_color[person.skin_color] = 1;
+            } else {
+              skin_color[person.skin_color] += 1;
+            }
+            return skin_color;
+          }, {});
+
+            /********** HELPER FOR TREE CHART******************/
+
+              const newArray = Object.entries(this.peopleBySkinColorChart.chartSeries[0].data).map(function(entry) {
+                return { x: entry[0], y: entry[1] };
+              });
+
+              this.treeChart.chartOptions.series = [{data: newArray }]
+
+            /********** END HELPER FOR TREE CHART******************/
+
+          this.peopleBySkinColorChart.chartSeries[0].data = Object.values(this.peopleBySkinColorChart.chartSeries[0].data);
+
+          /***********************************************************************/
 
       })
       .catch((error) => {
-        console.log("error mensage");
-        console.log(error.message);
+        console.log("error");
+        console.log(error);
         this.snackbar = true;
         this.stackbarText = error.message;
       })
@@ -303,4 +313,6 @@ export default {
       });
   }
 }
+
+
 </script>
