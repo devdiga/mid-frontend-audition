@@ -1,4 +1,24 @@
 <template>
+
+
+<div class="text-center ma-2">
+  <v-snackbar
+    v-model="snackbar"
+  >
+    {{ stackbarText }}
+
+    <template v-slot:actions>
+      <v-btn
+        color="pink"
+        variant="text"
+        @click="snackbar = false"
+      >
+        Close
+      </v-btn>
+    </template>
+  </v-snackbar>
+</div>
+
 <v-row>
   <v-col cols="4">
     <v-card>
@@ -68,11 +88,31 @@
     </v-card>
 
   </v-col>
-
-
-
-
 </v-row>
+
+<v-row>
+  <v-col cols="12">
+    <v-card>
+
+      <div v-if="loading" class="d-flex justify-center">
+        <v-progress-circular
+          indeterminate
+          color="primary"
+        />
+      </div>
+
+      <div v-if="!loading">
+        <apexchart
+          type="treemap"
+          :options="treeChart.chartOptions"
+          :series="treeChart.chartOptions.series"
+          height="400"
+        />
+      </div>
+    </v-card>
+  </v-col>
+</v-row>
+
 </template>
 
 <script>
@@ -86,24 +126,26 @@ export default {
   data () {
     return {
       loading: false,
+      snackbar: false,
+      stackbarText: '',
       peopleByGenderChart: {
         chartOptions: {
-        chart: {
-          id: "vuechart-example"
+          chart: {
+            id: "vuechart-example"
+          },
+          title: {
+            text: "People by gender",
+            align: "center"
+          },
+          colors:['#F44336'],
+          xaxis: {
+            categories: []
+          }
         },
-        title: {
-          text: "How many people by gender",
-          align: "center"
-        },
-        colors:['#F44336'],
-        xaxis: {
-          categories: []
-        }
-      },
-      chartSeries: [{
-        name: "People",
-        data: []
-      }]
+        chartSeries: [{
+          name: "People",
+          data: []
+        }]
       },
       peopleByEyeColorChart: {
         chartOptions: {
@@ -111,7 +153,7 @@ export default {
             id: "vuechart-example"
           },
           title: {
-            text: "How many people by eye color",
+            text: "People by eye color",
             align: "center"
           },
           colors:['#E91E63'],
@@ -130,7 +172,7 @@ export default {
             id: "vuechart-example"
           },
           title: {
-            text: "How many people by skin color",
+            text: "People by skin color (bars)",
             align: "center"
           },
           colors:['#9C27B0'],
@@ -143,6 +185,27 @@ export default {
           data: []
         }]
       },
+      treeChart: {
+        chartOptions: {
+          chart: {
+            height: 400,
+            type: 'treemap'
+          },
+          title: {
+            text: "People by skin color",
+            align: "center"
+          },
+          plotOptions: {
+            treemap: {
+              distributed: true
+            }
+          },
+
+          series: [{
+            data: [],
+          }]
+        },
+      }
 
     }
   },
@@ -150,10 +213,6 @@ export default {
     this.loading = true
     axios.get('https://swapi.dev/api/people')
       .then(({ data }) => {
-
-        console.log("get data")
-        console.log(data.results)
-
         this.peopleByGenderChart.chartOptions.xaxis.categories = data.results.reduce((gender, person) => {
           if (!gender[person.gender]) {
             gender[person.gender] = true;
@@ -207,6 +266,8 @@ export default {
 
         this.peopleBySkinColorChart.chartOptions.xaxis.categories = Object.keys(this.peopleBySkinColorChart.chartOptions.xaxis.categories);
 
+        console.log("teste");
+
         this.peopleBySkinColorChart.chartSeries[0].data = data.results.reduce((skin_color, person) => {
           if (!skin_color[person.skin_color]) {
             skin_color[person.skin_color] = 1;
@@ -216,12 +277,36 @@ export default {
           return skin_color;
         }, {});
 
+        console.log("help")
+        console.log(this.peopleBySkinColorChart.chartSeries[0].data);
+
+          /********** HELPER FOR TREE CHART******************/
+
+            const newArray = Object.entries(this.peopleBySkinColorChart.chartSeries[0].data).map(function(entry) {
+              return { x: entry[0], y: entry[1] };
+            });
+
+            this.treeChart.chartOptions.series = [{data: newArray }]
+
+            console.log("treeChart");
+            console.log(this.treeChart);
+
+            console.log("new array");
+            console.log(newArray);
+          /********** END HELPER FOR TREE CHART******************/
+
         this.peopleBySkinColorChart.chartSeries[0].data = Object.values(this.peopleBySkinColorChart.chartSeries[0].data);
+
+        /***********************************************************************/
+
 
 
       })
       .catch((error) => {
-        alert(error);
+        console.log("error mensage");
+        console.log(error.message);
+        this.snackbar = true;
+        this.stackbarText = error.message;
       })
       .finally(() => {
         this.loading = false;
