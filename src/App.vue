@@ -60,7 +60,7 @@ import AppBarBackground from '@/assets/img/bg-star-wars.jpg';
 
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
     menu: [
       {title: 'Dashboard', icon: 'mdi-home', to: '/'},
       {title: 'People', icon: 'mdi-account-group', to: '/people'},
