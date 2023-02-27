@@ -1,3 +1,28 @@
+# Tudo que foi feito #
+
+* Adição e configuração do VueRouter para criação de rotas de cada uma das resources existentes (planets, people, films, etc)
+* Criação de pasta Views para armazenar configurações de páginas específicas
+* Criação de componente Table, responsável por todas as configurações de exibição de dados na tabela, como cabeçalhos e paginação, além da pesquisa
+*  Criação de componente Page, responsável por configurar título da página, tipo de resource exibida na tabela e cabeçalhos da tabela
+* Refatoração de todo o layout utilizando componentes do Vuetify
+  * Criação de menu lateral com links de navegação pelo sistema
+  * Modificação na barra do topo com imagem de fundo e menu hamburger para permitir a ocultação da barra lateral
+  * Criação de componente Table para exibir os dados em cada página
+    * O componente é responsável pela pesquisa e paginação dos dados
+* Criação de Dashboard com exibição de gráficos relacionados a pessoas
+* Instalação de biblioteca ***Apexcharts*** para a criação dos gráficos
+
+# Para rodar o projeto localmente #
+
+1) Rodar o comando abaixo para instalar as dependências do projeto, principalmente as novas bibliotecas adicionadas (VueRouter e Apexcharts).
+```bash
+yarn install
+```
+2) Rodar o comando abaixo para iniciar o servidor local. No prompt de comando vai aparecer em qual porta o servidor está rodando. 
+```bash
+yarn run dev
+```
+
 # Teste desenvolvedor front-end DIGA #
 
 ### Introdução ###
