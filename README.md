@@ -23,6 +23,13 @@ yarn install
 yarn run dev
 ```
 
+### Imagens ###
+
+![Page Resources](./page_resources.png)
+
+![Page Dashboard](./page_dashboard.png)
+
+
 # Teste desenvolvedor front-end DIGA #
 
 ### Introdução ###
